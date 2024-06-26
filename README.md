@@ -62,6 +62,13 @@ This is a Spring Boot web application that allows users to manage a list of anim
 - `src/main/resources`
   - `templates`: Contains the Thymeleaf templates for the web pages.
   - `static/css`: Contains the CSS files for styling.
+ 
+## Create the Database
+Ensure you have a MySQL database named animal_db created. You can create it using the following SQL command:
+
+sql
+Copy code
+CREATE DATABASE animal_db;
 
 ## Usage
 
