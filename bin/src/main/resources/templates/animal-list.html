@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Animal List</title>
+</head>
+<body>
+<h2>Animal List</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Life Expectancy</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="animal : ${animals}">
+            <td th:text="${animal.name}">Name</td>
+            <td th:text="${animal.category}">Category</td>
+            <td th:text="${animal.description}">Description</td>
+            <td th:text="${animal.lifeExpectancy}">Life Expectancy</td>
+            <td>
+                <a th:href="@{/animals/edit/{id}(id=${animal.id})}">Edit</a>
+                <a th:href="@{/animals/delete/{id}(id=${animal.id})}">Delete</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<a href="/animals/new">Add New Animal</a>
+</body>
+</html>

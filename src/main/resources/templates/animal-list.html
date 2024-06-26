@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Animal List</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<h2>Animal List</h2>
+<div th:if="${successMessage}" class="success">
+    <p th:text="${successMessage}"></p>
+</div>
+
+<div th:if="${errorMessage}" class="error">
+    <p th:text="${errorMessage}"></p>
+</div>
+<div>
+    <label for="sortBy">Sort By:</label>
+    <select id="sortBy" onchange="location = this.value;">
+        <option th:value="@{/animals}" th:selected="${sortBy == null}">Default</option>
+        <option th:value="@{/animals(sortBy='name')}" th:selected="${sortBy == 'name'}">Name</option>
+        <option th:value="@{/animals(sortBy='category')}" th:selected="${sortBy == 'category'}">Category</option>
+        <option th:value="@{/animals(sortBy='lifeExpectancy')}" th:selected="${sortBy == 'lifeExpectancy'}">Life Expectancy</option>
+    </select>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Life Expectancy</th>
+            <th>Image</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="animal : ${animals}">
+            <td th:text="${animal.name}">Name</td>
+            <td th:text="${animal.category}">Category</td>
+            <td th:text="${animal.description}">Description</td>
+            <td th:text="${animal.lifeExpectancy}">Life Expectancy</td>
+            <td>
+                <img th:src="@{/animals/image/{id}(id=${animal.id})}" alt="Image" width="100" height="100" th:if="${animal.image != null}"/>
+                <span th:if="${animal.image == null}">No Image</span>
+            </td>
+            <td>
+                <a th:href="@{/animals/edit/{id}(id=${animal.id})}">Edit</a>
+                <a th:href="@{/animals/delete/{id}(id=${animal.id})}">Delete</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2><a href="/animals/new">Add New Animal</a></h2>
+</body>
+</html>

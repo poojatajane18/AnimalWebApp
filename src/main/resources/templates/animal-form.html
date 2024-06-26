@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animal Form</title>
+    <link rel="stylesheet" href="/css/animal.css">
+</head>
+<body>
+    <div id="pets">
+      <div class="card">
+        <img src="https://getwallpapers.com/wallpaper/full/4/e/5/942599-download-wildlife-backgrounds-for-desktop-1920x1080.jpg" alt="jerry" />
+        <h2>Animal Form</h2>
+	<div th:if="${errorMessage}" class="error">
+    <p th:text="${errorMessage}"></p>
+	</div>
+	<div th:if="${successMessage}" class="success">
+                <p th:text="${successMessage}"></p>
+     </div>
+
+<form th:action="@{/animals}" th:object="${animal}" method="post" enctype="multipart/form-data">
+    <input type="hidden" th:field="*{id}"/>
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" th:field="*{name}" required/>
+    </div>
+    <div>
+        <label for="category">Category:</label>
+        <select id="category" th:field="*{category}" required>
+            <option value="Mammal">Mammal</option>
+            <option value="Bird">Bird</option>
+            <option value="Reptile">Reptile</option>
+            <option value="Fish">Fish</option>
+            <option value="Amphibian">Amphibian</option>
+        </select>
+    </div>
+    <div>
+        <label for="file">Image:</label>
+        <input type="file" id="file" name="file"/>
+    </div>
+    <div>
+        <label for="description">Description:</label>
+        <textarea id="description" th:field="*{description}" required></textarea>
+    </div>
+    <div>
+        <label for="lifeExpectancy">Life Expectancy:</label>
+        <select id="lifeExpectancy" th:field="*{lifeExpectancy}" required>
+            <option value="2-5">2-5 years</option>
+            <option value="5-10">5-10 years</option>
+            <option value="10-20">10-20 years</option>
+            <option value="20+">20+ years</option>
+        </select>
+    </div>
+    <div>
+        <p>Solve this math problem: <span th:text="${num1}"></span> + <span th:text="${num2}"></span> = ?</p>
+        <input type="number" id="mathAnswer" name="mathAnswer" required/>
+        <input type="hidden" id="correctAnswer" th:value="${answer}" name="correctAnswer"/>
+    </div>
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+</form>
+      </div>
+    </div>
+  </body>
+</html>

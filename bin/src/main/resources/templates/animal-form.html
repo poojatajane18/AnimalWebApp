@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Animal Form</title>
+</head>
+<body>
+<h2>Animal Form</h2>
+<form th:action="@{/animals}" th:object="${animal}" method="post" enctype="multipart/form-data">
+    <input type="hidden" th:field="*{id}"/>
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" th:field="*{name}" required/>
+    </div>
+    <div>
+        <label for="category">Category:</label>
+        <select id="category" th:field="*{category}" required>
+            <option value="Mammal">Mammal</option>
+            <option value="Bird">Bird</option>
+            <option value="Reptile">Reptile</option>
+            <option value="Fish">Fish</option>
+            <option value="Amphibian">Amphibian</option>
+        </select>
+    </div>
+    <div>
+        <label for="file">Image:</label>
+        <input type="file" id="file" name="file"/>
+    </div>
+    <div>
+        <label for="description">Description:</label>
+        <textarea id="description" th:field="*{description}" required></textarea>
+    </div>
+    <div>
+        <label for="lifeExpectancy">Life Expectancy:</label>
+        <select id="lifeExpectancy" th:field="*{lifeExpectancy}" required>
+            <option value="2-5">2-5 years</option>
+            <option value="5-10">5-10 years</option>
+            <option value="10-20">10-20 years</option>
+            <option value="20+">20+ years</option>
+        </select>
+    </div>
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+</form>
+</body>
+</html>
