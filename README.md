@@ -70,12 +70,12 @@ CREATE DATABASE animalDatabase;
 ```
 ## Customizing the Application
 ### Adding New Fields to Animal Entity
-1.Update the Animal class in src/main/java/com/example/AnimalWebApp/entity/Animal.java.  
-2.Update the Thymeleaf templates in src/main/resources/templates to include the new fields.  
+1.Update the `Animal` class in `src/main/java/com/example/AnimalWebApp/entity/Animal.java`.  
+2.Update the Thymeleaf templates in `src/main/resources/templates` to include the new fields.  
 3.Update the controller and service classes to handle the new fields. 
 
 ### Changing the CAPTCHA Math Problem
-The CAPTCHA logic is handled in the AnimalController class. You can update the addMathProblemToModel method to change the math problem
+The CAPTCHA logic is handled in the `AnimalController` class. You can update the `addMathProblemToModel` method to change the math problem
 
 ## Usage
 
