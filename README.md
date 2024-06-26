@@ -65,10 +65,9 @@ This is a Spring Boot web application that allows users to manage a list of anim
  
 ## Create the Database
 Ensure you have a MySQL database named animal_db created. You can create it using the following SQL command:
-
-sql
-Copy code
+```
 CREATE DATABASE animal_db;
+```
 
 ## Usage
 
