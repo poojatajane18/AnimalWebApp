@@ -73,3 +73,8 @@ Navigate to `/animals` to view the list of animals. You can sort the list by nam
 
 Navigate to `/animals/new` to add a new animal. Fill out the form, solve the math problem, and submit.
 
+![Screenshot (325)](https://github.com/poojatajane18/AnimalWebApp/assets/92642653/248c4d25-6da0-4eff-88f5-9a466aed95a9)
+![Uploading screencapture-localhost-8080-animals-new-2024-06-26-14_01_03.png…]()
+![screencapture-localhost-8080-![Uploading Screenshot (326).png…]()
+animals-2024-06-26-14_51_34 (1)](https://github.com/poojatajane18/AnimalWebApp/assets/92642653/c7575378-c3a5-4b5c-8a1e-447792413631)
+
