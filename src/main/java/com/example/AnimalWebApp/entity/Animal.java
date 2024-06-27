@@ -29,6 +29,7 @@ public class Animal {
 
     // Getters and setters
 
+    //Parameterized constructor to initialize an animal object
     public Animal(Long id, String name, String category, byte[] image, String description, String lifeExpectancy) {
         this.id = id;
         this.name = name;
@@ -38,9 +39,11 @@ public class Animal {
         this.lifeExpectancy = lifeExpectancy;
     }
 
+    //Default Constructor
     public Animal() {
     }
 
+    //Gets the unique identifier of the animal.
     public Long getId() {
         return id;
     }

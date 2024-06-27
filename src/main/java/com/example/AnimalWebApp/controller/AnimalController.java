@@ -19,7 +19,9 @@ public class AnimalController {
 
     @Autowired
     private AnimalService animalService;
-
+    
+    
+    //Shows the list of Animal
     @GetMapping("/animals")
     public String listAnimals(Model model, @RequestParam(value = "sortBy", required = false) String sortBy) {
         List<Animal> animals = animalService.getAllAnimalsSorted(sortBy);
@@ -27,7 +29,8 @@ public class AnimalController {
         model.addAttribute("sortBy", sortBy);
         return "animal-list";
     }
-
+    
+    //Shows the form for creating a new animal
     @GetMapping("/animals/new")
     public String showCreateForm(Model model) {
         model.addAttribute("animal", new Animal());
@@ -35,6 +38,7 @@ public class AnimalController {
         return "animal-form";
     }
 
+    //Saves the new animal to the Database
     @PostMapping("/animals")
     public String saveAnimal(@ModelAttribute("animal") Animal animal,
                              @RequestParam("file") MultipartFile file,
@@ -61,7 +65,8 @@ public class AnimalController {
         }
     }
 
-
+    
+    //Shows the form for editing an existing animal
     @GetMapping("/animals/edit/{id}")
     public String showEditForm(@PathVariable("id") Long id, Model model) {
         Animal animal = animalService.getAnimalById(id);
@@ -74,6 +79,7 @@ public class AnimalController {
         return "animal-form";
     }
 
+    //Updates an existing animal in the database
     @PostMapping("/animals/{id}")
     public String updateAnimal(@PathVariable("id") Long id,
                                @ModelAttribute("animal") Animal animal,
@@ -109,12 +115,15 @@ public class AnimalController {
         }
     }
 
+    //Delete an animal from the database
     @GetMapping("/animals/delete/{id}")
     public String deleteAnimal(@PathVariable("id") Long id, Model model) {
         animalService.deleteAnimal(id);
         model.addAttribute("successMessage", "Animal deleted successfully!");
         return "redirect:/animals";
     }
+    
+    //Adds a simple math problem to the model for validation purpose
     private void addMathProblemToModel(Model model) {
         Random random = new Random();
         int num1 = random.nextInt(10) + 1;
@@ -123,6 +132,8 @@ public class AnimalController {
         model.addAttribute("num2", num2);
         model.addAttribute("answer", num1 + num2);
     }
+    
+    //Retrieves the image of an animal
     @GetMapping("/animals/image/{id}")
     public ResponseEntity<byte[]> getImage(@PathVariable("id") Long id) {
         Animal animal = animalService.getAnimalById(id);
