@@ -19,9 +19,14 @@ public class AnimalController {
 
     @Autowired
     private AnimalService animalService;
+<<<<<<< HEAD
     
     
     //Shows the list of Animal
+=======
+
+    //Display the list of Animal 
+>>>>>>> f4bc1f99eacbccd15d8fc3831040d9f8042b0048
     @GetMapping("/animals")
     public String listAnimals(Model model, @RequestParam(value = "sortBy", required = false) String sortBy) {
         List<Animal> animals = animalService.getAllAnimalsSorted(sortBy);
